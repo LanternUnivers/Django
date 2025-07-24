@@ -1,5 +1,5 @@
 set -o errexit
 pip install -r requirements.txt
-python3 bookprojectmanage.py collectstatic --no-input
-python3 bookprojectmanage.py migrate
-python3 bookprojectmanage.py superuser
+python3 bookproject/manage.py collectstatic --no-input
+python3 bookproject/manage.py migrate
+python3 bookproject/manage.py superuser
