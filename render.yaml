@@ -11,6 +11,7 @@ services:
     runtime: python
     buildCommand: "./build.sh"
     startCommand: "gunicorn bookproject.asgi:application -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:10000"
+    workDir: bookproject
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -18,3 +19,6 @@ services:
           property: connectionString
       - key: WEB_CONCURRENCY
         value: 4
+      - key: DJANGO_SETTINGS_MODULE
+        value: bookproject.settings
+
