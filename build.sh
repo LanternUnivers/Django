@@ -1,6 +1,9 @@
+#!/usr/bin/env bash
 set -o errexit
-export DJANGO_SETTINGS_MODULE=bookproject.settings
-cd /opt/render/project/src
+
+# DJANGO_SETTINGS_MODULE は render.yaml の envVars で設定しているのでここでは不要
+# cd /opt/render/project/src は不要（workDir で解決される）
+
 pip install -r requirements.txt
-python3 bookproject/manage.py collectstatic --no-input
-python3 bookproject/manage.py migrate
+python manage.py collectstatic --no-input
+python manage.py migrate
